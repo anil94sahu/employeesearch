@@ -1,0 +1,33 @@
+<div class="form-row" >
+    <div class="form-group col-sm-11 container-auto">
+        <form class="form-inline" [formGroup] = "editForm">
+        <div class="form-row">
+                <div class="form-group col-sm-3">
+                    <label for="email">Email address:</label>
+                    <input type="email" formControlName="email"  class="form-control" placeholder="Enter email" id="email">
+                </div>
+                
+                <div class="form-group col-sm-3">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control"  formControlName="password" placeholder="Enter password"
+                        id="pwd">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="name">Full Name:</label>
+                    <input type="text" formControlName="fullName" class="form-control" placeholder="Enter full Name" id="name">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="name">User Name:</label>
+                    <input type="text" formControlName="userName" class="form-control" placeholder="Enter user Name" id="username">
+                
+                </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-sm-3">
+                <button type="button" (click) = "submit(editForm.value)"  class="btn btn-primary">register</button>
+            </div>
+        </div>
+          </form>
+          
+    </div>
+</div>

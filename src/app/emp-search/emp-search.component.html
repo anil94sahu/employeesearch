@@ -1,0 +1,76 @@
+<div class="search">
+    <div class="input-group">
+        <input type="text" (input) = "search(key, empDetails)" [(ngModel)] = "key" class="form-control" placeholder="Search">
+        <div class="input-group-append">
+          <button class="btn btn-secondary" type="button">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+</div>
+<div class="form-row" *ngIf="editMode">
+    <div class="form-group col-sm-11 container-auto">
+        <form class="form-inline" [formGroup] = "editForm">
+        <div class="form-row">
+                <div class="form-group col-sm-3">
+                    <label for="email">Email address:</label>
+                    <input type="email" formControlName="email" readonly class="form-control" placeholder="Enter email" id="email">
+                </div>
+                
+                <div class="form-group col-sm-3">
+                    <label for="pwd">Password:</label>
+                    <input type="password" class="form-control" readonly formControlName="password" placeholder="Enter password"
+                        id="pwd">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="name">Full Name:</label>
+                    <input type="text" formControlName="fullName" class="form-control" placeholder="Enter full Name" id="name">
+                </div>
+                <div class="form-group col-sm-3">
+                    <label for="name">User Name:</label>
+                    <input type="text" formControlName="userName" class="form-control" placeholder="Enter user Name" id="username">
+                
+                </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-sm-3">
+                <button type="button" (click) = "update(editForm.value)"  class="btn btn-primary">Update</button>
+            </div>
+        </div>
+          </form>
+          
+    </div>
+</div>
+<table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">User Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of empDetails | paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{item.fullName}}</td>
+        <td>{{item.userName}}</td>
+        <td>{{item.email}}</td>
+        <td>
+            <div class="form-row">
+                <div class="form-group col-sm-5">
+                    <button class="btn btn-success" (click) = "edit(item)">Edit</button>
+                </div>
+                <div class="form-group col-sm-5">
+                    <button class="btn btn-danger" (click) = "delete(item)">Delete</button>
+                </div>
+            </div>
+        </td>
+      </tr>
+      
+      
+    </tbody>
+  </table>
+
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>

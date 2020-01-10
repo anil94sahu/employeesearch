@@ -1,0 +1,20 @@
+<div class="form-row">
+  <div class="form-group col-sm-10 container"> 
+    <form [formGroup]="loginForm" (submit) = "doLogin(loginForm.value)">
+        <div class="form-group">
+          <label for="email">Email address:</label>
+          <input type="email" formControlName="email" class="form-control" placeholder="Enter email" id="email">
+        </div>
+        <div class="form-group">
+          <label for="pwd">Password:</label>
+          <input type="password" formControlName="password" class="form-control" placeholder="Enter password" id="pwd">
+        </div>
+        
+        <button type="submit" (click) = "doLogin(loginForm.value)" class="btn btn-primary">Submit</button>
+        <button style="margin-left: 200px;" [routerLink]="['/register']" routerLinkActive="router-link-active"  class="btn btn-primary">register</button>
+    </form>
+
+  </div>
+</div>
+
+Credential : abc@yopmail.com && abcd@123
