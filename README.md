@@ -1,6 +1,17 @@
 # EmpSearch
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22. 
+After cloning the repository, move to the base folder. execute the command `npm install`.
+
+Login credentials is available in the application itself. 
+Employee CRUD and Search has been implemented.
+Pagination has been implemented.
+
+Pending:
+Registration functionality is pending
+
+## Pre-requisites
+node_modules
 
 ## Development server
 
